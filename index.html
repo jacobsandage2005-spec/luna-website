@@ -6,13 +6,23 @@
   <title>Luna — All in One Companion</title>
   <meta name="description" content="Luna is your all-in-one Discord companion.">
   <link rel="stylesheet" href="style.css">
+  <!-- Inline critical styles as a fallback in case external stylesheet fails to load -->
+  <style>
+    /* Basic dark fallback to ensure the anime-lofi look appears even if style.css is blocked */
+    body{background:#071021;color:#e6eef8;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);backdrop-filter:blur(6px)}
+    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#e6eef8;font-weight:600}
+    .brand-img{width:42px;height:42px;border-radius:10px;object-fit:contain;flex:0 0 42px}
+    nav a{color:#9aa7b6;text-decoration:none;margin-left:16px;padding:8px 10px;border-radius:8px}
+    .lofi-rings{position:fixed;right:-120px;bottom:-80px;pointer-events:none}
+  </style>
 </head>
 <body>
   <div class="grain"></div>
   <header>
     <a class="brand" href="index.html">
       <img class="brand-img" src="assets/logo.svg" alt="Luna logo" width="42" height="42">
-      <span>Luna</span>
+      <span>LUNA</span>
     </a>
     <nav aria-label="Main navigation">
       <a href="#features">Features</a>
