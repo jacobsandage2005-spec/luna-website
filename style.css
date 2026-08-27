@@ -18,8 +18,10 @@ body{margin:0;background:linear-gradient(135deg,var(--bg-1) 0%,var(--bg-2) 60%);
 /* grain overlay (keeps existing class) */
 .grain{pointer-events:none;position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);background-size:3px 3px;mix-blend-mode:overlay;opacity:0.35}
 header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);backdrop-filter: blur(6px);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+/* Brand (use inline image) */
 .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:600}
-.brand::before{content:"";width:42px;height:42px;display:inline-block;background:url('assets/logo.svg') center/contain no-repeat;border-radius:10px;box-shadow:0 6px 18px rgba(139,92,246,0.12);flex:0 0 42px}
+.brand::before{display:none!important} /* old pseudo-element removed */
+.brand-img{width:42px;height:42px;border-radius:10px;object-fit:contain;flex:0 0 42px;box-shadow:0 6px 18px rgba(139,92,246,0.12);transform-origin:center}
 .brand span{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--ink)}
 nav a{color:var(--muted);text-decoration:none;margin-left:16px;padding:8px 10px;border-radius:8px}
 nav a:hover{color:var(--accent);background:linear-gradient(90deg, rgba(139,92,246,0.06), rgba(255,122,182,0.03));box-shadow:0 4px 14px rgba(139,92,246,0.06)}
@@ -37,44 +39,17 @@ main{padding:40px 28px}
 .card{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(3,8,20,0.6)}
 .card h3{color:var(--ink)}
 /* subtle neon rings for anime-lofi vibe */
-.lofi-rings{position:fixed;right:-120px;bottom:-80px;pointer-events:none}
-.lofi-rings svg{opacity:0.12;filter:blur(14px)}
+.lofi-rings{position:fixed;right:-120px;bottom:-80px;pointer-events:none;transform-origin:center center}
+.lofi-rings img{opacity:0.12;filter:blur(10px);animation:rings-rotate 120s linear infinite}
 /* responsive adjustments */
-@media (max-width:700px){header{padding:12px 16px}nav a{margin-left:8px;padding:6px 8px}}
+@media (max-width:700px){header{padding:12px 16px}nav a{margin-left:8px;padding:6px 8px}.lofi-rings{right:-60px;bottom:-40px;transform:scale(0.6)}}
 /* Accessibility: keep high contrast for important elements */
 .header-cta{display:flex;gap:12px;align-items:center}
 /* focus states */
 a:focus{outline:3px solid rgba(139,92,246,0.18);outline-offset:3px}
 
-/* use inline image for brand instead of pseudo-element */
-.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:600}
-.brand::before{display:none!important} /* hide old pseudo-element if present */
-.brand-img{width:42px;height:42px;border-radius:10px;object-fit:contain;flex:0 0 42px;box-shadow:0 6px 18px rgba(139,92,246,0.12);transform-origin:center}
-
 /* logo bob + subtle glow */
-@keyframes logo-bob {
-  0% { transform: translateY(0) rotateZ(0); }
-  50% { transform: translateY(-4px) rotateZ(-0.5deg); }
-  100% { transform: translateY(0) rotateZ(0); }
-}
-@keyframes logo-glow {
-  0% { box-shadow: 0 6px 18px rgba(139,92,246,0.06); }
-  50% { box-shadow: 0 10px 30px rgba(139,92,246,0.14); }
-  100% { box-shadow: 0 6px 18px rgba(139,92,246,0.06); }
-}
-.brand-img {
-  animation: logo-bob 4s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
-}
-
-/* slow ring rotation and subtle parallax */
-.lofi-rings{position:fixed;right:-120px;bottom:-80px;pointer-events:none;transform-origin:center center}
-@keyframes rings-rotate {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-.lofi-rings img { opacity:0.12; filter:blur(10px); animation: rings-rotate 120s linear infinite; will-change:transform; }
-
-/* reduce ring size/position on small screens */
-@media (max-width:700px){
-  .lofi-rings{right:-60px;bottom:-40px;transform:scale(0.6)}
-}
+@keyframes logo-bob{0%{transform:translateY(0) rotateZ(0)}50%{transform:translateY(-4px) rotateZ(-0.5deg)}100%{transform:translateY(0) rotateZ(0)}}
+@keyframes logo-glow{0%{box-shadow:0 6px 18px rgba(139,92,246,0.06)}50%{box-shadow:0 10px 30px rgba(139,92,246,0.14)}100%{box-shadow:0 6px 18px rgba(139,92,246,0.06)}}
+.brand-img{animation:logo-bob 4s ease-in-out infinite,logo-glow 4s ease-in-out infinite}
+@keyframes rings-rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
