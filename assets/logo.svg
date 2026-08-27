@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Luna logo">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#9b7df6"/>
+      <stop offset="1" stop-color="#ff7ab6"/>
+    </linearGradient>
+    <filter id="f" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feBlend in="SourceGraphic" in2="b"/>
+    </filter>
+  </defs>
+
+  <!-- soft rounded background -->
+  <rect x="2" y="2" width="116" height="116" rx="18" fill="url(#g)" opacity="0.15"/>
+
+  <!-- main rounded panel -->
+  <rect x="6" y="6" width="108" height="108" rx="14" fill="#071021"/>
+
+  <!-- stylized face circle -->
+  <circle cx="60" cy="56" r="28" fill="#ffffff" opacity="0.98"/>
+
+  <!-- hair (white) -->
+  <path d="M36 56c3-22 44-34 48-6 0 0-6-12-26-12-20 0-28 18-22 18z" fill="#f8fbff"/>
+
+  <!-- maid headband -->
+  <rect x="36" y="44" width="48" height="10" rx="6" fill="#0b0f1a"/>
+  <circle cx="60" cy="49" r="6" fill="#ffffff"/>
+
+  <!-- eyes -->
+  <circle cx="50" cy="58" r="3.2" fill="#8b5cf6"/>
+  <circle cx="70" cy="58" r="3.2" fill="#8b5cf6"/>
+
+  <!-- subtle smile -->
+  <path d="M50 68c4 3 12 3 16 0" stroke="#d6dff6" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"/>
+
+  <!-- small decorative ring echoing app-mark shape -->
+  <g transform="translate(78,84) rotate(-18)">
+    <ellipse rx="12" ry="6" fill="none" stroke="#ff7ab6" stroke-width="2" opacity="0.12" filter="url(#f)"/>
+  </g>
+</svg>
