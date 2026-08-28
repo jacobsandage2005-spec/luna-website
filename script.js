@@ -14,7 +14,7 @@ const primaryBtn = document.querySelector('.btn-primary');
 if (primaryBtn) {
     primaryBtn.addEventListener('click', () => {
         // Open invite link or redirect to Discord bot invite page
-        window.open('https://discord.com/oauth2/authorize?client_id=YOUR_BOT_ID&scope=bot&permissions=8', '_blank');
+        window.open('https://discord.com/oauth2/authorize?client_id=1541228066750070834&scope=bot&permissions=8', '_blank');
     });
 }
 
