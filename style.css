@@ -114,10 +114,35 @@ body {
     margin-right: auto;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('hero-background.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(15, 15, 26, 0.6) 0%, rgba(26, 15, 46, 0.7) 100%);
+    z-index: 2;
+}
+
 .hero-content {
     flex: 1;
     z-index: 10;
     max-width: 650px;
+    position: relative;
 }
 
 .hero-title {
@@ -196,6 +221,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 }
 
 .floating-elements {
@@ -268,6 +294,7 @@ body {
     right: 100px;
     opacity: 0.15;
     animation: rotate-rings 30s linear infinite;
+    z-index: 10;
 }
 
 @keyframes rotate-rings {
